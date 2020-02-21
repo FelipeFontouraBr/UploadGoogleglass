@@ -1,0 +1,15 @@
+@charset "UTG-8";
+
+section#conteudo {
+    width: 1000px; /*Largura de 1000 pixels*/
+    margin: auto; /*Margem automatica, o conteudo irá ficar centralizado na tela indenpentende do espaço que ele ocupe*/
+}
+iframe#frame-spec {
+    width: 400px;
+    height: 280px; /*altura de 280 pixels*/
+    border: none; /*remoção da borda*/
+    overflow: hidden;/*remoção da visualização do conteúdo*/
+}
+iframe#frame-spec::-webkit-scrollbar {
+    display: none;
+}

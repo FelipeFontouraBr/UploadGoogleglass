@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tudo sobre Google Glass</title>
+    <link rel="stylesheet" type="text/css" href="_css/estilo.css"> <!--Essa TAG vai gerar uma ligação com o CSS-->
+    <link rel="stylesheet" href="_css/form.css">
+    <script language="javascript" src="_javascript/funcoes.js"></script> <!--Essa TAG conecta as informações com o JS-->
+    <script>
+        function calc_total() {
+            var qtd = parseInt(document.getElementById('cQtd').value); //Irá pegar o conteudo da caixa "documento" de quantidade que tem o id "cQtd". //Como tudo que esta dentro do qtd são números, precisa converter para numeros, portanto converter para inteiros "pareInt"
+            tot = qtd*1500; //Considerando que o preço do Google Glass custa 200 dólares
+            document.getElementById('cTot'),value = tot; //Apresentação do resultado total
+        }
+
+    </script>
+
+</head>
+<script src="_javascript/funcoes.js"></script> <!--Aqui chamamos o arquivo de javascript-->
+<body>
+<div id="interface">
+
+<header id="cabecalho">
+<hgroup>
+<h1>Google Glass</h1>
+<h2>A revolução do Google está chegando</h2>
+
+</hgroup>
+<img id="icone" src="_imagens/glass-oculos-preto-peq.png"> <!--Aqui colocarmos uma id, para chamarmos no css e no javascript--><!--esta dentro do cabeçalho, portanto, criar dentro da area de cabeçalho no CSS e JS-->
+
+<nav id="menu"> <!--Tudo o que estiver dentro do container <nav>, será considerado meu menu de navegação--><!--criamos uma id com nome "menu"-->
+    <h1>Menu Principal</h1> <!--Esse é o meu título principal para esse container-->
+    <ul type="disc"> <!--Tudo que estiver dentro de ul fara parte de uma lista ordenada-->
+    <li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="index.html">Home</a></li> <!--Aqui declaro que os itens fazem parte de uma lista de itens (li)--><!--Aqui criamos um link para o index.html--><!--Sempre qe movermos o mouse sobre a opção home, ele vai modificar a imagem para casinha, e depois que tirar o mouse, volta o oculos-->
+    <li onmouseover="mudaFoto('_imagens/especificacoes.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="specs.html">Especificações</a></li>
+    <li onmouseover="mudaFoto('_imagens/fotos.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="fotos.html">Fotos</a></li>
+    <li onmouseover="mudaFoto('_imagens/multimidia.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="multimidia.html">Multimídia</a></li>
+    <li onmouseover="mudaFoto('_imagens/contato.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="fale-conosco.html">Fale conosco</a></li>
+    </ul>
+</nav>
+</header>
+
+<section id="corpo-full">
+    <article id="noticia-principal">
+        <header id="cabecalho-artigo">
+            <hgroup>
+                <h3>Fale Conosco > Contato/h3>
+                <h1>Formulário de Contato</h1>
+                <h2>por Felipe Fontoura</h2>
+                <h3 class="direita">Atualizado em 04/Fevereiro/2020</h3>
+            </hgroup>
+        </header>
+
+<form method="post" id="fContato" actio="mailto:felipefontouramec@gmail.com" oninput="calc_total();"> <!--"post" método de formulário mais lento, porém mais seguro, "action" é para onde esses dados serão enviados--><!--"Oniput" quando digitar alguma informação irá disparar algum procedimento-->
+    <fieldset id="usuario"> <!--Conjunto de campos, deixa uma borda na informação--> <!--Aqui usamos uma tag legend para os títulos-->
+        <legend>Identificação do Usuário</legend>
+            <p>Nome: <input type="text" name="tNome" id="cNome" size="20" maxlength="30"placeholder="Nome Completo"></p> <!--Aqui inserimos um objeto (Caixa de Texto), para o usuario digitar. Size=tamanho, Maxlength=Limite de caracteres, Placeholder=dica do que é para ser digitado-->
+            <p>Senha: <input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 Dígitos"></p>
+            <p>E-mail: <input type="email" name="tMail" id="cMail" size="24" maxlength="40" placeholder="Digite seu e-mail"></p>
+            <fieldset id="sexo"><legend>Sexo:</legend>
+                <input type="radio" name="tSexo" id="cMasc"><label for="cMasc">Masculino</label><br> <!--Quando o objeto for do mesmo grupo e usar "radios", o name precisa ser igual, para não der erro-->
+                <input type="radio" name="tSexo" id="cFem"><label for="cFem">Feminino</label></fieldset> <!--Label ou etiquetas, são usados para referenciar objetos aos seus ID's-->
+            <p>Data de Nascimento: <input type="date" name="tData" id="cData"></p>
+    </fieldset>
+    
+    <fieldset id="endereco">
+        <legend>Endereço do Usuário</legend>
+            <p><label for="cRua">Logradouro: </label><input type="text" name="tRua" id="cRua" size="15" maxlength="80" placeholder="Rua, Avenida, ..."></p>
+            <p><label for="cNum">Número: </label><input type="number" name="tNum" id="cNum" min="0" max="99999" placeholder="Número"></label></p>
+            <p><label for="cEst">Estado: </label>
+            <select name="tEst" id="cEst"> <!--Tag select irá criar caixas combinadas-->
+                <optgroup label="Região Sudeste"> <!--optgrupo=grupo de opções, facilita a demonstração das opções-->
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="SP" selected>São Paulo</option> <!--Se caso essa for a cidade mais clicada, já deixa selecionado a cidade como sugestão-->
+                    <option value="MG">Minas Gerais</option>
+                </optgroup>
+                <optgroup label="Região Sul">
+                <option value="SC">Santa Catarina</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="PR">Paraná</option>
+            </optgroup>
+            </select></p>
+            <p><label for="cCid">Cidade: </label>
+            <input type="text" name="tCid" maxlength="40" size="20" placeholder="Digite sua cidade" list="cidades">
+            <datalist id="cidades"> <!--Aqui vamos salvar os dados que serão armazenados em datalist-->
+                <option value="Rio de Janeiro"></option>
+                <option value="Nova Iguaçu"></option>
+                <option value="Niterói"></option>
+                <option value="Búzios"></option>
+                <option value="Cabo Frio"></option>
+            </datalist>
+    </fieldset>
+    
+    <fieldset id="mensagem">
+        <legend>Mensagem do Usuário</legend>
+            <p><label for="cUrg">Grau de Urgência: </label>
+            <input type="range" name="tUrg" id="cUrg" min="0" max="10" step="2"></p> <!--"Step", pulo que um valor da de um para o outro-->
+            <p><label for="cMsg">Mensagem: </label></p>
+            <textarea name="tMsg" id="cMsg" cols="35" rows="5" placeholder="Deixe aqui sua mensagem"> </textarea>
+    </fieldset>
+    
+    <fieldset id="pedido">
+       <legend>Quero um Google Glass</legend>
+       <p><input type="checkbox" name="tPed" id="cPed"> <!--Inserir uma caixinha-->
+       <label for="cPed">Gostaria de adquirir um Google Glass quando disponível</label>
+            <p><label for="cCor">Cor: </label></p>
+            <p><label for="cQtd">Quantidade </label></p>
+            <p><label for="cTot">Preço Total: R$ </label></p>
+            <input type="text" name="tTot" id="cTot" placeholder="Total a Pagar" readonly></p>
+             
+    </fieldset>
+    <input type="image" name="tEnviar"  src="_imagens/botao-enviar.png" > <!--Aqui inserimos o botão enviar-->
+</form>
+</article>
+</section>
+
+<footer id="rodape">
+<p>Copyright &copy; 2020 - by Felipe Fontoura <br>
+<a href="http://facebook.com.br" target="_blank">Facebook</a> | <!--Para o link aparecer em uma aba nova no navegador, usar target="_blank"-->
+<a href="http://twitter.com" target="_blank">Twitter</a></p>
+</footer>
+</div>
+</body>
+</html>

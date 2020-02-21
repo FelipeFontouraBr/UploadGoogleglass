@@ -1,0 +1,247 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap'); /*copiamos esse link do google fonts*/
+@font-face {
+    font-family: 'FonteLogo'; /*Nome da fonte*/
+    src: url("../_fonts/bubblegum-sans-regular.otf"); /*aqui insiro a pasta que contem a fonte (2 pontos para voltar na pasta)*/
+}
+body {
+   font-family: Arial, sans-serif;
+   background-color: #dddddd;
+   color: rgba(0, 0, 0, 1);
+} 
+/*Aqui vamos criar uma div com id interface, todo objeto com id colocar # em CSS*/
+div#interface {
+    width: 1300px;/*Delimitamos a largura da div principal */
+    background-color: white;/*Interface com fundo branco*/
+    margin: -20px auto 0px auto;/*delimitando a margem*/ /*Meu editor automaticamente irá cuidar da margem da direita e da esquerda*//*Sempre que aumentar ou diminuir o navegador, o conteudo ficará centralizado na tela*/
+    box-shadow: 0px 0px 10px black;/*Irá criar uma sombra em volta do objeto*//*Deslocamento lateral, deslocamento vertical, espalhamento da sobra e cor*/
+    padding: 10px;/*mesma configuração para box-shadow, porém aqui fazemos a margem do objeto na parte interna*/
+    position: relative;
+}
+p { 
+    text-align: justify; 
+    text-indent: 50px;
+}
+/*configuração do link*/
+a {
+    color: #606060;
+    text-decoration: none; /*o texto não será grifado*/
+}
+/*quando passar o mouse sobre o mouse, ele ficar sublinhado*/
+a:hover {
+    text-decoration: underline;
+}
+
+/*Configurando a imagem do óculos para ser uma img absoluta*/
+header#cabecalho img#icone {
+    position: absolute;
+    left: 1130px;
+    top: 65px;
+}
+/*Aqui vamos configurar todos Objetos que estão dentro do cabeçalho*/
+header#cabecalho {
+    border-bottom: 1px #606060 solid; /*Largura da borda em pixels*/
+    height: 150px; /*altura*/
+    background: url("../_imagens/glass-logo-peq.jpg") no-repeat 0px 100px;/*buscar imagem através do CSS, .. (2pontos) para voltar uma página*//*No-repeat ele não repete o objeto*//*0px (deslocamento horizontal) 100px (deslocamento vertifical)*/
+}
+/*Todo objeto que tiver h1 é o meu principal*/
+header#cabecalho h1 {
+    font-family: 'FonteLogo', sans-serif;
+    font-size: 30pt;
+    color: #606060;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .6); /*sombra*/
+    padding: 0px;
+    margin-bottom: 0px;/*aqui atualizamos apenas a margem debaixo*/
+}
+/*Configurando todo objeto que tiver h2*/
+header#cabecalho h2 {
+    font-family: 'Titillium Web', sans-serif; /*subtituimos pelo codigo gerado por google fonts*/
+    color: #888888;
+    font-size: 15pt;
+    padding: 0px;
+    margin-top: 0px; /*aqui configuramos a margem de cima do h2*/
+}
+/*Formatação de imagens com legendas */
+
+figure.foto-legenda {/*toda figure que é da classe "foto legenda", irá ter a formatação abaixo / Toda vez que usar o Class em CSS, usar nome da tag.nome da classe*/
+    position: relative; /*posição relativa, ou seja, irá ficar relativo ao códio HTML, aonde ele foi colocado no HMTL e dentro dele o figcaption vai ter uma posição absoluta*/
+    border: 8px solid rgba(250, 247, 247, 0.952);
+    width: 500px;
+    box-shadow: 1px 1px 4px black;/*colocar sombra*/
+}
+figure.foto-legenda img { /*tudo o que for img, terá as configurações abaixo*/
+    width: 100%;/*largura em 100%*/
+    height: 100%; /*altura em 100%*/
+}
+figure.foto-legenda figcaption {
+    opacity: 0;/*esconder o texto temporariamente*/
+    position: absolute; /* irá ter uma posição absoluta dentro do container, que no caso é a borda declarada em border*/
+    top: 0px;
+    background-color: rgba(0, 0, 0, .4);/*criando um fundo transparente, com transparência de 0.4*/
+    color: white;/*deixando a letra branca*/
+    width: 100%;/*deixar a borda preta ocupar toda a borda da imagem*/
+    height: 100%;
+    padding: 10px;/*criando um espaço dentro da legenda*/
+    box-sizing: border-box;/*resolvendo o problema de transportar a borda, isso vai criar um box dentro da borda*/
+    transition: opacity 1s;/*Adicionando uma efeito de transição para a opacidade com paramêtro de 1segundo, o tempo que ele vai levar*/
+}
+
+/*Criando um efeito de sobreposição quando o mouse é passado por cima: */
+figure.foto-legenda:hover figcaption {/*O hover vai disparar uma formatação expecífica quando passar o mouse sobre o objeto, nesse caso, o figcaption*/
+    opacity: 1; /*Opacidade de 100%*/ /*Depois disso, quando passar o mouse por cima, a legenda é exibida*/
+
+}
+/*Formatação do Menu*/
+nav#menu { /*Aqui fazemos o menu flutuar e ficar na posição correta. Portanto, fazer o menu ser exibido como um bloco*/
+    display: block; /*um bloco pode flutuar pela tela*/
+
+}
+nav#menu ul {/*Sempre que tiver um id, colocar #*/ /*Tudo que for ul=Lista não ordenadas*/
+    list-style: none; /*Some com os marcadores da lista*/
+    text-transform: uppercase; /*Deixa as letras da lista em maiúsculo*/
+    position: absolute;/*Apenas a lista flutue pela tela. Portanto, colocamos uma posição absoluta (fica livre pelo site) para que ele possa passar por cima dos documentos */
+    top: 0px;/*aqui e abaixo, configuramos o top e o left*//*Colocamos negativo, porque todo site tem uma margem que é zero, para ultrapassar essa margem, coloque (-) negativo*/
+    left: 600px;
+}
+/*Aqui nós mudamos o formato da lista que esta em vertical para horizontal*/
+nav#menu li { /*aqui configuramos para cada elemento da lista, por isso colocar "li"*/
+    display: inline-block; /*Faz um bloco ser exibido numa mesma linha*/
+    background-color: rgb(214, 209, 209);/*Colocar uma cor ao fundo*/
+    padding: 10px; /*irá criar um espaço dentro das bordas, onde fica parecido com um botão*/
+    margin: 2px;/*Aqui inserimos uma margem entre os botões*/
+    transition: background-color 1s; /*Criando uma transição de 1s, ou seja, quando passar o mouse vai levar 1 segundo para mudar de uma cor para outra*/
+}
+
+/*Fazer efeito de quando o cursor passa por cima dos botões: home, especificações, fotos etc...*/
+nav#menu li:hover { /*hover: efeito aplicado quando passar o mouse por cima*/
+    background-color: #606060; /*quando passar o mouse por cima, sera alterado a cor*/
+}
+
+nav#menu h1 { /*aqui vamos esconder o menu principal*/
+    display:none; /*apartir daqui, escondemos*/
+    /*Mas ele continua sendo vísivel para os mecanimos dentro de navegação <nav id="menu">*/
+}
+
+/*Formatando todos os liks*/
+nav#menu a { /*todo link que tem um id a (ancora)*/
+    color: black;
+    text-decoration: none; /*Tirar o sublinhado*/
+}
+
+/*Formatando o link para que quando passe o mouse ele mude de cor*/
+nav#menu a:hover {
+    color: white; /*Quando passa o mouse por cima, a cor da letra fica branca*/
+    text-decoration: underline; /*Quando passa o mouse por cima, a letra fica sublinhado*/
+}
+
+/*Configuração da section*/
+section#corpo {
+    display: block; /*para ser mostrada como um bloco*/
+    width: 640px;/*definir a largura da section*/
+    float: left; /*flutuo o conteudo para ficar do lado esquerdo da tela*/
+    border-right: 1px solid #606060;/*criar uma linha (borda) do lado direito*//*(largura), tipo de linha e cor*/
+    padding-right: 20px; /*configuração do padding*/
+}
+/*Configuração do article principal*/
+article#noticia-principal h2 { /*Fomatamos todos os h2 que tiver no texto principal*/
+    font-size: 13 pt;
+    color: #606060;
+    background-color: #dddddd;
+    padding: 5px 0px 5px 10px;
+    margin: 10px 0px 10px 0px;
+}
+/*formatação do cabeçalho*/
+header#cabecalho-artigo h1 {
+    font-family: 'FonteLogo', sans-serif;
+    font-size: 20pt;
+    color: #606060; 
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.direita {/*tudo o que tiver na class=direita, fica a direita*/
+    text-align: right;
+}
+
+header#cabecalho-artigo h2 {
+    font-size: 13pt;
+    color: #cecece;
+    background-color: #ffffff;
+    margin: 0px;
+
+}
+header#cabecalho-artigo h3 {
+    font-size: 12px;
+    color: #606060;
+
+}
+/*A tabela está dentro do corpo, portanto, configuramos a seguir:*/
+table#tabelaspec {
+    border: 1px solid #606060; /*Borda da tabela*/
+    border-spacing: 0px; /*Espaço entre as células*/
+    margin-left: auto;
+    margin-right: auto;
+}
+/*Configurando tudo o que for td*/
+table#tabelaspec td{
+    border: 1px solid #606060; /*Borda da célula*/
+    padding: 10px;
+}
+table#tabelaspec td.ce { /*Configuramos todas as celulas que estão na esquerda*/
+    color: white;/*cor da fonte*/
+    background-color: #606060; /*cor de fundo*/
+    font-weight: bold; /*fonte negrito*/
+}
+table#tabelaspec td.cd { /*configuramos todas as celulas que estão na direita*/
+    background-color: #cecece;
+
+}
+table#tabelaspec caption {
+    color: #888888;
+    font-size: 13pt;
+    font-weight: bolder;
+}
+/*configuração expecífica para Span*/
+table#tabelaspec caption span {
+    display: block;
+    float: right;
+    color: #000000;
+    font-size: 8pt; 
+    margin-top: 10px;
+}
+
+/*Configuração do aside*/
+aside#lateral {
+    display: block;
+    width: 600px;
+    float: right;
+    background-color: #dddddd;
+    padding: 10px;
+    margin-top: 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .5)
+}
+/*Configurar interface dos asides*/
+aside#lateral h1{
+    font-family: 'FonteLogo', sans-serif;
+    font-size: 20pt;
+    color: #606060;
+    margin-top: 0px;/*subir um pouco o título outras notícias*/
+}
+aside#lateral h2{
+    background-color: #606060;
+    font-size: 13pt;
+    color: #ffffff;
+    padding: 5px;
+}
+
+/*Configuração do rodapé*/
+footer#rodape {
+    clear: both;/*limpa e faz o conteudo ficar fora da divisão de sectione aside*/
+    border-top: 1px solid #606060;
+    text-align: center;
+    padding-top: 10px;
+  }
+/*Centralizar o rodapé*/
+footer#rodape p{
+    text-align: center;
+}
